@@ -136,6 +136,7 @@ tabela_ghibli |>
 tabela_ghibli |> 
   group_by(diretor) |> 
   summarise(n = n()) |> 
+  mutate(diretor = forcats::fct_reorder(diretor, -n)) |> 
   ggplot(aes(x = diretor, y = n, fill = diretor)) +
   geom_bar(stat = "identity") +
   scale_y_continuous(breaks = seq(0, 10, by = 2)) +
@@ -165,7 +166,7 @@ tabela_ghibli |>
 
 tumulo_vagalumes <- xml2::read_html("output/5.html") |> 
   rvest::html_table() |> #parsing
-  pluck(1) |> 
+  pluck(1) %>% 
   .[c(-1, -2), ]
 
 colnames(tumulo_vagalumes) <- c("categoria", "descricao")
@@ -201,6 +202,6 @@ tumulo_vagalumes |>
   tab_header(
     title = "Túmulo de Vagalumes", 
     subtitle = "Ficha do filme"
-  )
-
+  ) |> 
+  gtsave("tabghibli.png")
 
