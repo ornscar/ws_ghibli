@@ -16,4 +16,4 @@ Fundado em 1985 pelos cineastas japoneses Hayao Miyazaki, Isao Takahata, Toshio 
 
 <br>
 
-<p align="center"><img src="shinyapp.png" width="650" height="400" /></p>
+<p align="center"><img src="ghibliwiki.png" width="650" height="400" /></p>
