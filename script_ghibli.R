@@ -153,7 +153,6 @@ tabela_ghibli |>
     color = "diretor", fill = "Diretor:"
   ) +
   theme(
-    #legend.title = element_blank(),
     legend.position = "bottom",
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank()
@@ -203,5 +202,5 @@ tumulo_vagalumes |>
     title = "Túmulo de Vagalumes", 
     subtitle = "Ficha do filme"
   ) |> 
-  gtsave("tabghibli.png")
+  gtsave("tab_ghibli.png")
 
