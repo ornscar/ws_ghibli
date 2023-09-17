@@ -150,10 +150,10 @@ tabela_ghibli |>
   labs(
     title = "Número de filmes do Studio Ghibli, por diretor", 
     x = "", y = "", 
-    color = "diretor"
+    color = "diretor", fill = "Diretor:"
   ) +
   theme(
-    legend.title = element_blank(),
+    #legend.title = element_blank(),
     legend.position = "bottom",
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank()
