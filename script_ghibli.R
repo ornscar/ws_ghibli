@@ -21,7 +21,7 @@ library(ggimage)
 library(gt)
 
 
-# Scraping simples -----------------------------------------------------------
+# scraping simples -----------------------------------------------------------
 
 # url
 
@@ -43,7 +43,7 @@ tabela_ghibli <- r_ghibli |>
   clean_names() |> 
   rename(roteirista = roteirista_s, produtor = produtor_es)
 
-# Scraping complexa ----------------------------------------------------------
+# scraping complexa ----------------------------------------------------------
 
 links_filmes <- r_ghibli |> 
   xml2::read_html() |> # ler arquivo HTML
@@ -89,7 +89,7 @@ progressr::with_progress({
 })
 
 
-# Primeira analise --------------------------------------------------------
+# primeira analise --------------------------------------------------------
 
 # manipulacao
 
@@ -123,6 +123,7 @@ tabela_ghibli |>
     titulo = forcats::fct_reorder(titulo, ano)
   ) |> 
   ggplot(aes(x = ano, y = titulo)) +
+  scale_x_continuous(limits = c(1986, 2020), breaks = seq(1986, 2020, by = 4)) +
   geom_image(image = ghibli, size = .04) + #adiciona imagem
   theme_classic() +
   theme_light() +
@@ -159,7 +160,7 @@ tabela_ghibli |>
   )
 
 
-# Segunda analise ---------------------------------------------------------
+# segunda analise ---------------------------------------------------------
 
 # manipulacao
 
@@ -168,10 +169,10 @@ tumulo_vagalumes <- xml2::read_html("output/5.html") |>
   pluck(1) %>% 
   .[c(-1, -2), ]
 
-colnames(tumulo_vagalumes) <- c("categoria", "descricao")
+colnames(tumulo_vagalumes) <- c("Categoria", "Descrição")
 
 tumulo_vagalumes <- tumulo_vagalumes |> 
-  pivot_wider(names_from = "categoria", values_from = "descricao") |>
+  pivot_wider(names_from = "Categoria", values_from = "Descrição") |>
   clean_names() |> 
   rename(
     titulo_br = no_brasil,
@@ -195,7 +196,7 @@ tumulo_vagalumes <- tumulo_vagalumes |>
 tumulo_vagalumes |> 
   pivot_longer(
     cols = 1:17, 
-    names_to = "categoria", values_to = "descricao"
+    names_to = "Categoria", values_to = "Descrição"
   ) |> 
   gt() |> 
   tab_header(
