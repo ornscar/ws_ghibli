@@ -17,3 +17,5 @@ Fundado em 1985 pelos cineastas japoneses Hayao Miyazaki, Isao Takahata, Toshio 
 <br>
 
 <p align="center"><img src="ghibliwiki.png" width="650" height="400" /></p>
+
+Detalhes na construção do código estão lá no blog da R-Ladies São Paulo: [https://rladies-sp.org/posts/2023-10-ws-ghibli/](https://rladies-sp.org/posts/2023-10-ws-ghibli/)!
