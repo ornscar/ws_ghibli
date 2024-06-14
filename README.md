@@ -1,5 +1,4 @@
-# Web Scraping  - Studio Ghibli, na Wikipédia
-
+# Web Scraping & Studio Ghibli
 ### Script
 
 `script_ghibli.R`
