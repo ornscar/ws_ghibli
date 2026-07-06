@@ -123,14 +123,14 @@ tabela_ghibli |>
     titulo = forcats::fct_reorder(titulo, ano)
   ) |> 
   ggplot(aes(x = ano, y = titulo)) +
-  scale_x_continuous(limits = c(1986, 2020), breaks = seq(1986, 2020, by = 4)) +
-  geom_image(image = ghibli, size = .04) + #adiciona imagem
-  theme_classic() +
-  theme_light() +
-  labs(
-    title = "Ano de lançamento dos filmes do Studio Ghibli",
-    x = "", y = "Filme"
-  )
+    scale_x_continuous(limits = c(1986, 2020), breaks = seq(1986, 2020, by = 4)) +
+    geom_image(image = ghibli, size = .04) + #adiciona imagem
+    theme_classic() +
+    theme_light() +
+    labs(
+      title = "Ano de lançamento dos filmes do Studio Ghibli",
+      x = "", y = "Filme"
+    )
 
 # grafico de barras
 
@@ -139,25 +139,25 @@ tabela_ghibli |>
   summarise(n = n()) |> 
   mutate(diretor = forcats::fct_reorder(diretor, -n)) |> 
   ggplot(aes(x = diretor, y = n, fill = diretor)) +
-  geom_bar(stat = "identity") +
-  scale_y_continuous(breaks = seq(0, 10, by = 2)) +
-  theme_classic() +
-  theme_light() +
-  scale_fill_ghibli_d("MononokeMedium") + #paleta de cor ghibli: 'princesa mononoke'
-  geom_label(
-    aes(label = n), position = position_dodge(width = 1), 
-    show.legend = FALSE, color = "white"
-  ) +
-  labs(
-    title = "Número de filmes do Studio Ghibli, por diretor", 
-    x = "", y = "", 
-    color = "diretor", fill = "Diretor:"
-  ) +
-  theme(
-    legend.position = "bottom",
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank()
-  )
+    geom_bar(stat = "identity") +
+    scale_y_continuous(breaks = seq(0, 10, by = 2)) +
+    theme_classic() +
+    theme_light() +
+    scale_fill_ghibli_d("MononokeMedium") + #paleta de cor ghibli: 'princesa mononoke'
+    geom_label(
+      aes(label = n), position = position_dodge(width = 1), 
+      show.legend = FALSE, color = "white"
+    ) +
+    labs(
+      title = "Número de filmes do Studio Ghibli, por diretor", 
+      x = "", y = "", 
+      color = "diretor", fill = "Diretor:"
+    ) +
+    theme(
+      legend.position = "bottom",
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()
+    )
 
 
 # segunda analise ---------------------------------------------------------
